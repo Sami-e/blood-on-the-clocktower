@@ -2,17 +2,17 @@ import './GamePage.scss';
 import { Component } from 'react';
 import Grimoire from '../components/Grimoire';
 import GrimoireState from '../components/GrimoireState';
-import PlayerState from '../components/PlayerState';
+import withRouter from '../higher-order-components/withRouter';
 
 class GamePage extends Component {
-  render() {
+  constructor(props) {
+    super(props)
+  }
 
-    let grimoireState = new GrimoireState([
-      new PlayerState("Sami", "Virgin", "Good"),
-      new PlayerState("Michael", "Imp", "Evil"),
-      new PlayerState("Evan", "Spy", "Evil"),
-      new PlayerState("Samir", "Fortune Teller", "Good")
-    ]);
+  render() {
+    const { id } = this.props.id;
+    console.log(id);
+    let grimoireState = new GrimoireState(id);
 
     return (
       <div className="GamePage">
@@ -23,4 +23,5 @@ class GamePage extends Component {
   }
 }
 
-export default GamePage;
+export default withRouter(GamePage);
+

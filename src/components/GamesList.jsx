@@ -5,13 +5,10 @@ import GameBrief from './GameBrief';
 class GamesList extends Component {
   constructor(props){
     super(props);
-    this.games = [
-      <GameBrief id={0} script={"TB"} date={"August 20th"} brief={"The one with the Damsel"} winner={"Good"}/>,
-      <GameBrief id={1} script={"TB"} date={"August 20th"} brief={"The one with the Damsel"} winner={"Bad"}/>,
-      <GameBrief id={2} script={"TB"} date={"August 20th"} brief={"The one with the Damsel"} winner={"Good"}/>,
-      <GameBrief id={3} script={"TB"} date={"August 20th"} brief={"The one with the Damsel"} winner={"Bad"}/>,
-      <GameBrief id={4} script={"TB"} date={"August 20th"} brief={"The one with the Damsel"} winner={"Good"}/>
-    ];
+    const db = require('../sampleGames/OfficialBOTCDatabase.json');
+    this.games = db.games.map( (game, id) => {
+      return <GameBrief id={id} script={game.brief.script} date={game.brief.date} brief={game.brief.brief} winner={game.brief.winner}/>
+    });
   }
   
 

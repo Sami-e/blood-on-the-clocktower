@@ -1,0 +1,164 @@
+{
+  "games": [
+    {
+      "brief": {
+        "script": "TB",
+        "date": "August 20th",
+        "brief": "The One With The Damsel",
+        "winner": "Good"
+      },
+      "grimoire": {
+        "players": [
+          {
+            "name": "Sami",
+            "role": "Virgin",
+            "allignment": "Good"
+          },
+          {
+            "name": "Michael",
+            "role": "Imp",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Evan",
+            "role": "Spy",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Samir",
+            "role": "Fortune Teller",
+            "allignment": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "brief": {
+        "script": "TB",
+        "date": "August 20th",
+        "brief": "The One With The Damsel",
+        "winner": "Evil"
+      },
+      "grimoire": {
+        "players": [
+          {
+            "name": "Sami",
+            "role": "Virgin",
+            "allignment": "Good"
+          },
+          {
+            "name": "Michael",
+            "role": "Imp",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Evan",
+            "role": "Spy",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Samir",
+            "role": "Fortune Teller",
+            "allignment": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "brief": {
+        "script": "TB",
+        "date": "August 20th",
+        "brief": "The One With The Damsel",
+        "winner": "Good"
+      },
+      "grimoire": {
+        "players": [
+          {
+            "name": "Sami",
+            "role": "Virgin",
+            "allignment": "Good"
+          },
+          {
+            "name": "Michael",
+            "role": "Imp",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Evan",
+            "role": "Spy",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Samir",
+            "role": "Fortune Teller",
+            "allignment": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "brief": {
+        "script": "TB",
+        "date": "August 20th",
+        "brief": "The One With The Damsel",
+        "winner": "Evil"
+      },
+      "grimoire": {
+        "players": [
+          {
+            "name": "Sami",
+            "role": "Virgin",
+            "allignment": "Good"
+          },
+          {
+            "name": "Michael",
+            "role": "Imp",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Evan",
+            "role": "Spy",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Samir",
+            "role": "Fortune Teller",
+            "allignment": "Good"
+          }
+        ]
+      }
+    },
+    {
+      "brief": {
+        "script": "TB",
+        "date": "August 20th",
+        "brief": "The One With The Damsel",
+        "winner": "Good"
+      },
+      "grimoire": {
+        "players": [
+          {
+            "name": "Sami",
+            "role": "Virgin",
+            "allignment": "Good"
+          },
+          {
+            "name": "Michael",
+            "role": "Imp",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Evan",
+            "role": "Spy",
+            "allignment": "Evil"
+          },
+          {
+            "name": "Samir",
+            "role": "Fortune Teller",
+            "allignment": "Good"
+          }
+        ]
+      }
+    }
+  ]
+}
