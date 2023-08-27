@@ -1,0 +1,40 @@
+$color_1: white;
+$background-color_1: #282c34;
+
+.Home {
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	background-color: $background-color_1;
+	min-height: 100vh;
+	.header {
+		display: flex;
+		flex-direction: column;
+		font-size: calc(10px + 2vmin);
+		color: $color_1;
+		padding-bottom: 2%;
+	}
+
+	.gamesList {
+		display: flex;
+		flex-direction: column;
+		.gameBrief {
+			display: flex;
+			flex-direction: row;
+			font-size: calc(10px + 1vmin);
+			color: $color_1;
+			
+			.briefItem {
+				border: 1px solid gray;
+				border-bottom: 1px solid gray;
+				flex-basis: 0;
+				flex-grow: 1;
+				padding: 5px;
+				text-align: center;
+			}
+		}
+	}
+}
+

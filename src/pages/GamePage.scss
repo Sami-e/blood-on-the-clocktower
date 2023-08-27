@@ -1,0 +1,36 @@
+$color_1: white;
+$background-color_1: #282c34;
+
+.GamePage {
+	a {
+		text-decoration: none;
+		color: black;
+	}
+	display: flex;
+	flex-direction: column;
+	background-color: $background-color_1;
+	min-height: 100vh;
+	color: $color_1;
+	.header {
+		display: flex;
+		font-size: calc(10px + 2vmin);
+		height: 10vh;
+		width: 100vw;
+	}
+  .grimoire {
+		display: flex;
+		width: 100vw;
+		flex-grow: 1;
+    .character-token {
+			display: flex;
+  		justify-content: center;
+  		align-items: center;
+			text-align: center;
+
+      position: absolute;
+			border-radius: 50%; 
+      border: 1px solid gray;
+    }
+  }
+}
+
