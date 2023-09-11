@@ -1,161 +1,139 @@
 {
   "games": [
     {
+      "title": "The One That's The First One",
       "brief": {
-        "script": "TB",
-        "date": "August 20th",
-        "brief": "The One With The Damsel",
+        "script": "Trouble Brewing",
+        "date": "June 6th, 2023",
         "winner": "Good"
-      },
+      }, 
+      "description": "This is the first official game that was played. The demon bluffs were Slayer, Saint, and Virgin",
       "grimoire": {
         "players": [
           {
-            "name": "Sami",
-            "role": "Virgin",
-            "allignment": "Good"
+            "name": "Saral",
+            "token": "Monk",
+            "allignment": "Good",
+            "reminderTokens": ["Fortune Teller Red Herring"],
+            "isAlive": false
           },
           {
-            "name": "Michael",
-            "role": "Imp",
-            "allignment": "Evil"
+            "name": "Lucas",
+            "token": "Recluse",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": true
+          },
+          {
+            "name": "Richard",
+            "token": "Ravenkeeper",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": true
+          },
+          {
+            "name": "Justin",
+            "token": "Empath",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": false
+          },
+          {
+            "name": "Sol",
+            "token": "Undertaker",
+            "allignment": "Good",
+            "reminderTokens": ["Drunk"],
+            "isAlive": false
+          },
+          {
+            "name": "Leo",
+            "token": "Scarlet-Woman",
+            "allignment": "Evil",
+            "reminderTokens": [],
+            "isAlive": false
+          },
+          {
+            "name": "Kevin L",
+            "token": "Fortune-Teller",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": false
           },
           {
             "name": "Evan",
-            "role": "Spy",
-            "allignment": "Evil"
+            "token": "Spy",
+            "allignment": "Evil",
+            "reminderTokens": [],
+            "isAlive": true
           },
           {
-            "name": "Samir",
-            "role": "Fortune Teller",
-            "allignment": "Good"
+            "name": "Alipasha",
+            "token": "Chef",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": false
           }
         ]
       }
     },
     {
+      "title": "The One With Our First Starpass",
       "brief": {
-        "script": "TB",
-        "date": "August 20th",
-        "brief": "The One With The Damsel",
+        "script": "Trouble Brewing",
+        "date": "June 6th, 2023",
         "winner": "Evil"
-      },
+      }, 
+      "description": "This game is the first one where our origin demon Alipasha starpassed into Amelie, securing the evil team the win",
       "grimoire": {
         "players": [
           {
-            "name": "Sami",
-            "role": "Virgin",
-            "allignment": "Good"
+            "name": "Amelie",
+            "token": "Imp",
+            "allignment": "Evil",
+            "reminderTokens": [],
+            "isAlive": true
           },
           {
-            "name": "Michael",
-            "role": "Imp",
-            "allignment": "Evil"
+            "name": "Arash",
+            "token": "Undertaker",
+            "allignment": "Good",
+            "reminderTokens": ["Washerwoman Wrong"],
+            "isAlive": false
           },
           {
-            "name": "Evan",
-            "role": "Spy",
-            "allignment": "Evil"
+            "name": "Justin",
+            "token": "Monk",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": false
           },
           {
-            "name": "Samir",
-            "role": "Fortune Teller",
-            "allignment": "Good"
-          }
-        ]
-      }
-    },
-    {
-      "brief": {
-        "script": "TB",
-        "date": "August 20th",
-        "brief": "The One With The Damsel",
-        "winner": "Good"
-      },
-      "grimoire": {
-        "players": [
-          {
-            "name": "Sami",
-            "role": "Virgin",
-            "allignment": "Good"
+            "name": "Saral",
+            "token": "Fortune-Teller",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": false
           },
           {
-            "name": "Michael",
-            "role": "Imp",
-            "allignment": "Evil"
+            "name": "Richard",
+            "token": "Slayer",
+            "allignment": "Good",
+            "reminderTokens": ["Fortune Teller Red Herring", "Slayer No Ability", "Washerwoman Townsfolk", "Test1", "Test2"],
+            "isAlive": false
           },
           {
-            "name": "Evan",
-            "role": "Spy",
-            "allignment": "Evil"
+            "name": "Lucas",
+            "token": "Washerwoman",
+            "allignment": "Good",
+            "reminderTokens": [],
+            "isAlive": true
           },
           {
-            "name": "Samir",
-            "role": "Fortune Teller",
-            "allignment": "Good"
-          }
-        ]
-      }
-    },
-    {
-      "brief": {
-        "script": "TB",
-        "date": "August 20th",
-        "brief": "The One With The Damsel",
-        "winner": "Evil"
-      },
-      "grimoire": {
-        "players": [
-          {
-            "name": "Sami",
-            "role": "Virgin",
-            "allignment": "Good"
-          },
-          {
-            "name": "Michael",
-            "role": "Imp",
-            "allignment": "Evil"
-          },
-          {
-            "name": "Evan",
-            "role": "Spy",
-            "allignment": "Evil"
-          },
-          {
-            "name": "Samir",
-            "role": "Fortune Teller",
-            "allignment": "Good"
-          }
-        ]
-      }
-    },
-    {
-      "brief": {
-        "script": "TB",
-        "date": "August 20th",
-        "brief": "The One With The Damsel",
-        "winner": "Good"
-      },
-      "grimoire": {
-        "players": [
-          {
-            "name": "Sami",
-            "role": "Virgin",
-            "allignment": "Good"
-          },
-          {
-            "name": "Michael",
-            "role": "Imp",
-            "allignment": "Evil"
-          },
-          {
-            "name": "Evan",
-            "role": "Spy",
-            "allignment": "Evil"
-          },
-          {
-            "name": "Samir",
-            "role": "Fortune Teller",
-            "allignment": "Good"
+            "name": "Alipasha",
+            "token": "Imp",
+            "allignment": "Evil",
+            "reminderTokens": [],
+            "isAlive": false
           }
         ]
       }

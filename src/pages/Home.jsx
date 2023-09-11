@@ -1,4 +1,4 @@
-import './Home.scss';
+import '../css/Home.scss';
 import GamesList from '../components/GamesList'
 import { Component } from 'react';
 

@@ -2,6 +2,9 @@ $color_1: white;
 $background-color_1: #282c34;
 
 .Home {
+	display: flex;
+	flex-direction: column;
+
 	a {
 		text-decoration: none;
 		color: black;
@@ -35,6 +38,19 @@ $background-color_1: #282c34;
 				text-align: center;
 			}
 		}
+	}
+	.createGameButton {
+		display: flex;
+		flex-direction: column;
+		font-size: calc(10px + 1vmin);
+		color: $color_1;
+		flex-basis: 0;
+		flex-grow: 1;
+		position: fixed;
+		bottom: 5%;
+		text-align: center;
+		align-self: center;
+		
 	}
 }
 

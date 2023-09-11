@@ -1,5 +1,5 @@
 import { Component, createRef } from 'react';
-
+import "../css/Tokens.scss"
 class Grimoire extends Component {
   
   constructor(props) {
@@ -24,8 +24,6 @@ class Grimoire extends Component {
       })
     }
   }
-    
-
   
   componentDidMount(){
     this.setSize();
@@ -38,26 +36,55 @@ class Grimoire extends Component {
 
 
   createTokens(){  
-    var tableRadius = Math.min(this.state.width, this.state.height) * 0.4;
-    var angle = Math.PI / 2;
-    var step = (2*Math.PI) / this.characterCount;
-    var characterTokens = [];
-    var tokenRadius = tableRadius * 0.3;
+    const tableRadius = Math.min(this.state.width, this.state.height) * 0.4;
+    const angle = Math.PI / 2;
+    const step = (2*Math.PI) / this.characterCount;
+    const characterTokens = [];
+    const charRadius = tableRadius * 0.4;
+    const remindRadius = charRadius * 0.4;
     for (let i = 0; i < this.characterCount; i++){
-      var x = Math.round(this.state.left + this.state.width/2 + (tableRadius * Math.cos(angle + (i * step))) - tokenRadius/2);
-      var y = Math.round(this.state.top + this.state.height/2 + (tableRadius * Math.sin(angle + (i * step)))- tokenRadius/2);
-      console.log(this.state.width, tokenRadius, x, y)
-      characterTokens.push(
-        <div className='character-token' style={{
-          width: tokenRadius,
-          height: tokenRadius,
-          left: x + 'px', 
-          top: y + 'px'
-        }}>
-          {this.props.state.players[i].role}
-        </div>
-      );
+      const charX = Math.round(this.state.left + this.state.width/2 + (tableRadius * Math.cos(angle + (i * step))) - charRadius/2);
+      const charY = Math.round(this.state.top + this.state.height/2 + (tableRadius * Math.sin(angle + (i * step)))- charRadius/2);
       
+      const playerInfo = this.props.state.players[i];
+      console.log(playerInfo)
+      characterTokens.push(
+        <div className='character'style={{
+          left: charX + 'px', 
+          top: charY + 'px'
+        }}>
+          <div className='player-name'>{this.props.state.players[i].name}</div>
+
+          <div className={('token ' + playerInfo.token)} style={{
+            width: charRadius,
+            height: charRadius
+          }}>
+            {!playerInfo.isAlive ? <div className='Dead'/> : ''}
+          </div>
+        </div>
+        
+      );
+
+      const tokenCount = this.props.state.players[i].reminderTokens.length;
+      this.props.state.players[i].reminderTokens.forEach((token, j) => {
+        const offset = (j === tokenCount - 1 ? 0 
+                          : j % 2 == 0 ? - (remindRadius + 10)
+                          : (remindRadius + 10))
+        const distanceFromCenter = tableRadius - (charRadius) - (remindRadius * Math.floor(j / 2)) - (10 * Math.floor(j / 2));
+        const offsetAngle = (Math.asin((offset / (4 * distanceFromCenter)))) * 2
+        const remindX = Math.round(this.state.left + this.state.width/2 + (distanceFromCenter * Math.cos(angle + (i * step) + offsetAngle)) - remindRadius/2);
+        const remindY = Math.round(this.state.top + this.state.height/2 + (distanceFromCenter * Math.sin(angle + (i * step) + offsetAngle))- remindRadius/2);
+        characterTokens.push(
+          <div className='token' style={{
+            width: remindRadius,
+            height: remindRadius,
+            left: remindX + 'px', 
+            top: remindY + 'px'
+          }}>
+            {token}
+          </div>
+        );
+      });
     }
     return characterTokens;
   }

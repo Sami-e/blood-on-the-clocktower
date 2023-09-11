@@ -1,9 +1,11 @@
 
 class PlayerState {
-  constructor(name, role, allignment) {
+  constructor(name, token, allignment, reminderTokens, isAlive) {
     this.name = name;
-    this.role = role;
+    this.token = token;
     this.allignment = allignment;
+    this.reminderTokens = reminderTokens;
+    this.isAlive = isAlive
   }
 }
 
