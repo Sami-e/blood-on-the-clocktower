@@ -1,12 +1,12 @@
 import { Component } from 'react';
-import Grimoire from './Grimoire';
+import GrimoireView from './GrimoireView';
 
 class GameLog extends Component {
   constructor(props){
     super(props);
     this.players = [];
     this.events = [];
-    this.finalGrimoire = Grimoire;
+    this.finalGrimoire = GrimoireView;
   }
 }
 

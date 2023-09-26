@@ -50,7 +50,15 @@ $background-color_1: #282c34;
 		bottom: 5%;
 		text-align: center;
 		align-self: center;
-		
+		cursor: pointer;
+
+		background-color: #631D76; /* Green */
+  		padding: 10px 20px;
+		&:hover {
+			background-color: #683277; /* Green */
+			transition: all 0.1s ease-in;
+		}
+		transition: all 0.1s ease-in;
 	}
 }
 

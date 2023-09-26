@@ -1,17 +1,17 @@
 import { Component, createRef } from 'react';
 import "../css/Tokens.scss"
-class Grimoire extends Component {
+class GrimoireView extends Component {
   
   constructor(props) {
     super(props);
     this.characterCount = props.state.players.length;
-    this.characterTokens = [];
     this.state = {
       width: 0, height: 0, top: 0, left: 0
     }
     this.ref = createRef()
-    
     this.setSize = this.setSize.bind(this);
+
+
   }
 
   setSize(){
@@ -41,13 +41,12 @@ class Grimoire extends Component {
     const step = (2*Math.PI) / this.characterCount;
     const characterTokens = [];
     const charRadius = tableRadius * 0.4;
-    const remindRadius = charRadius * 0.4;
+    
     for (let i = 0; i < this.characterCount; i++){
       const charX = Math.round(this.state.left + this.state.width/2 + (tableRadius * Math.cos(angle + (i * step))) - charRadius/2);
       const charY = Math.round(this.state.top + this.state.height/2 + (tableRadius * Math.sin(angle + (i * step)))- charRadius/2);
       
       const playerInfo = this.props.state.players[i];
-      console.log(playerInfo)
       characterTokens.push(
         <div className='character'style={{
           left: charX + 'px', 
@@ -64,17 +63,28 @@ class Grimoire extends Component {
         </div>
         
       );
+    }
+    return characterTokens;
+  }
 
+  createReminderTokens(){
+    const tableRadius = Math.min(this.state.width, this.state.height) * 0.4;
+    const angle = Math.PI / 2;
+    const step = (2*Math.PI) / this.characterCount;
+    const reminderTokens = [];
+    const charRadius = tableRadius * 0.4;
+    const remindRadius = charRadius * 0.4;
+    for (let i = 0; i < this.characterCount; i++){
       const tokenCount = this.props.state.players[i].reminderTokens.length;
       this.props.state.players[i].reminderTokens.forEach((token, j) => {
         const offset = (j === tokenCount - 1 ? 0 
-                          : j % 2 == 0 ? - (remindRadius + 10)
+                          : j % 2 === 0 ? - (remindRadius + 10)
                           : (remindRadius + 10))
         const distanceFromCenter = tableRadius - (charRadius) - (remindRadius * Math.floor(j / 2)) - (10 * Math.floor(j / 2));
         const offsetAngle = (Math.asin((offset / (4 * distanceFromCenter)))) * 2
         const remindX = Math.round(this.state.left + this.state.width/2 + (distanceFromCenter * Math.cos(angle + (i * step) + offsetAngle)) - remindRadius/2);
         const remindY = Math.round(this.state.top + this.state.height/2 + (distanceFromCenter * Math.sin(angle + (i * step) + offsetAngle))- remindRadius/2);
-        characterTokens.push(
+        reminderTokens.push(
           <div className='token' style={{
             width: remindRadius,
             height: remindRadius,
@@ -86,17 +96,18 @@ class Grimoire extends Component {
         );
       });
     }
-    return characterTokens;
+    return reminderTokens;
   }
 
   render() {
-    this.characterTokens = this.createTokens();
+    const characterTokens = this.createTokens();
+    const reminderTokens = this.createReminderTokens();
     return (<div ref={this.ref} className='grimoire'>
-      {this.characterTokens}
+      {characterTokens} {reminderTokens}
     </div>);
   }
 }
 
 
 
-export default Grimoire;
+export default GrimoireView;

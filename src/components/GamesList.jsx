@@ -22,11 +22,11 @@ class GamesList extends Component {
     </div>;
 
     let listFooter = 
-    <div className='createGameButton'> Create New Game </div>
+    <Link to={`/games/edit/${this.games.length}`} className='createGameButton'> Create New Game </Link> 
     
     let gameBrief = [];
     for (let i = 0; i < this.games.length; i++) {
-      gameBrief.push(<Link to={`/games/${i}`}> {this.games[i]} </Link>)
+      gameBrief.push(<Link to={`/games/view/${i}`}> {this.games[i]} </Link>)
     }
     return (<> 
       <div className='gamesList'>{listHeader}{gameBrief}</div>

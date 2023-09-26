@@ -1,103 +1,126 @@
 // TB Tokens
-
-.Washerwoman {
+.token, .small-token {
+    
+&.Washerwoman {
     background-image: url("../images/tokens/TB_Tokens/TB_Washerwoman.png");
     background-size: contain;
 }
 
-.Librarian {
+&.Librarian {
     background-image: url("../images/tokens/TB_Tokens/TB_Librarian.png");
     background-size: contain;
 }
 
-.Investigator {
+&.Investigator {
     background-image: url("../images/tokens/TB_Tokens/TB_Investigator.png");
     background-size: contain;
 }
 
-.Chef {
+&.Chef {
     background-image: url("../images/tokens/TB_Tokens/TB_Chef.png");
     background-size: contain;
 }
 
-.Empath {
+&.Empath {
     background-image: url("../images/tokens/TB_Tokens/TB_Empath.png");
     background-size: contain;
 }
 
-.Fortune-Teller {
+&.Fortune-Teller {
     background-image: url("../images/tokens/TB_Tokens/TB_Fortune_Teller.png");
     background-size: contain;
 }
 
-.Undertaker {
+&.Undertaker {
     background-image: url("../images/tokens/TB_Tokens/TB_Undertaker.png");
     background-size: contain;
 }
 
-.Monk {
+&.Monk {
     background-image: url("../images/tokens/TB_Tokens/TB_Monk.png");
     background-size: contain;
 }
 
-.Ravenkeeper {
+&.Ravenkeeper {
     background-image: url("../images/tokens/TB_Tokens/TB_Ravenkeeper.png");
     background-size: contain;
 }
 
-.Slayer {
+&.Virgin {
+    background-image: url("../images/tokens/TB_Tokens/TB_Virgin.png");
+    background-size: contain;
+}
+
+&.Slayer {
     background-image: url("../images/tokens/TB_Tokens/TB_Slayer.png");
     background-size: contain;
 }
 
-.Soldier {
+&.Soldier {
     background-image: url("../images/tokens/TB_Tokens/TB_Soldier.png");
     background-size: contain;
 }
 
-.Mayor {
+&.Mayor {
     background-image: url("../images/tokens/TB_Tokens/TB_Mayor.png");
     background-size: contain;
 }
 
-.Butler {
+&.Butler {
     background-image: url("../images/tokens/TB_Tokens/TB_Butler.png");
     background-size: contain;
 }
 
-.Recluse {
+&.Drunk {
+    background-image: url("../images/tokens/TB_Tokens/TB_Drunk.png");
+    background-size: contain;
+}
+
+&.Recluse {
     background-image: url("../images/tokens/TB_Tokens/TB_Recluse.png");
     background-size: contain;
 }
 
-.Saint {
+&.Saint {
     background-image: url("../images/tokens/TB_Tokens/TB_Saint.png");
     background-size: contain;
 }
 
-.Poisoner {
+&.Poisoner {
     background-image: url("../images/tokens/TB_Tokens/TB_Poisoner.png");
     background-size: contain;
 }
 
-.Spy {
+&.Spy {
     background-image: url("../images/tokens/TB_Tokens/TB_Spy.png");
     background-size: contain;
 }
 
-.Scarlet-Woman {
+&.Scarlet-Woman {
     background-image: url("../images/tokens/TB_Tokens/TB_Scarlet_Woman.png");
     background-size: contain;
 }
 
-.Baron {
+&.Baron {
     background-image: url("../images/tokens/TB_Tokens/TB_Baron.png");
     background-size: contain;
 }
 
-.Imp {
+&.Imp {
     background-image: url("../images/tokens/TB_Tokens/TB_Imp.png");
     background-size: contain;
+}
+
+&.Add-Character {
+    background-image: url("../images/other-images/Add-Character.png");
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid gray;
+    &:hover {
+        opacity: 50%;
+        transition: 0.1s ease;
+    }
 }
 
 .Dead {
@@ -106,4 +129,23 @@
     background-image: url("../images/other-images/X-Death.png");
     background-size: contain;
     opacity: 70%;
+}
+
+.closeToken {
+    visibility: hidden;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 20%;
+    height: 20%;
+    background-image: url("../images/other-images/close-token-button.png");
+    background-size: contain;
+    border-radius: 50%;
+}
+
+&:hover {
+    .closeToken {
+        visibility: visible;
+    }
+}
 }

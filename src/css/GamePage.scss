@@ -25,6 +25,7 @@ $background-color_1: #282c34;
 		display: flex;
       	position: absolute;
 		flex-direction: column;
+		align-items: center;
 		.token {
 			position: relative;
 			display: flex;
@@ -33,15 +34,21 @@ $background-color_1: #282c34;
 			text-align: center;
 			// In case border colour is required
 			border-radius: 50%; 
-			border: none
 		}
 
 		.player-name {
+			width: fit-content;
+			background-color: $background-color_1;
+			border: none;
+			color: white;
 			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			text-align: center;
+			&::placeholder {
+				color: white;
+			}
 		}
 	}
 
@@ -54,9 +61,60 @@ $background-color_1: #282c34;
 
 		// In case border colour is required
 		border-radius: 50%; 
-		border: 1px solid gray;
+		&.Add-Character {
+			border: 1px solid gray;
+		}
+		// Should get removed soon
+		border: 1px solid #888;
 	}
     
   }
+
+  /* The Modal (background) */
+  .modal {
+	display: none;
+	&.shown {
+		display: block;
+	}
+	
+	position: fixed; 
+	z-index: 1; 
+	left: 0;
+	top: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto; 
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4); 
+  }
+
+  .modal-content {
+	display: flex;
+	flex-direction: column;
+	background-color: $background-color_1;
+	margin: 15% auto; 
+	padding: 20px;
+	border: 1px solid #888;
+	width: 60%; 
+
+	.tokenList {
+		display: flex;
+		flex-flow: row wrap;
+		flex-grow: 1;
+		justify-content: center;
+		align-items: center;
+		.small-token {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			width: 14.28%;
+			// In case border colour is required
+			border-radius: 50%;
+			aspect-ratio: 1; 
+		}
+	}
+  }
+
 }
 
