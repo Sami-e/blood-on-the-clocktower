@@ -1,9 +1,10 @@
-import { Component, createRef } from "react";
+import React, {createRef } from "react";
 import PlayerState from "./PlayerState";
 import "../css/Tokens.scss"
 import Token from "./Token";
-class GrimoireEdit extends Component {
-  
+import GrimoireCommon from "./GrimoireCommon";
+class GrimoireEdit extends GrimoireCommon {
+
   constructor(props) {
     super(props);
     this.characterCount = props.state.players.length;
@@ -84,33 +85,15 @@ class GrimoireEdit extends Component {
   }
 
   createTokens(){  
-    const [tableRadius, startingAngle, step, charRadius] = this.tableVariables()
-    const characterTokens = [];
-    
-    for (let i = 0; i < this.characterCount; i++){
-      const charX = Math.round(this.state.left + this.state.width/2 + (tableRadius * Math.cos(startingAngle + (i * step))) - charRadius/2);
-      const charY = Math.round(this.state.top + this.state.height/2 + (tableRadius * Math.sin(startingAngle + (i * step)))- charRadius/2);
-      
-      const playerInfo = this.state.players[i];
-
-      const onMouseEnter = ()=> {this.setState({addReminder: [i]})}
-
-      characterTokens.push(
-        <div className="character"style={{
-          left: charX + "px", 
-          top: charY + "px"
-        }}>
-          <input className="player-name" type="text" placeholder={this.state.players[i].name}/>
-
-          <Token type={"token " + playerInfo.token} radius={charRadius} addDeadMarker={!playerInfo.isAlive}
+    const characterTokens = super.createTokens().map((tokenWrapper, i) => {
+      const token = <Token {...tokenWrapper.props.children[1].props}
             onRemove={(e) => {this.removeCharacter(i); e.stopPropagation()}}
             onClick={() => {this.setState({addCharacter: i})}}
-            onMouseEnter={onMouseEnter}/>
+            onMouseEnter={ () => {this.setState({addReminder: [i]})}}/>
+      return React.cloneElement(tokenWrapper, {children: []}, tokenWrapper.props.children[0], token)
+    })
 
-        </div>
-      );
-    }
-
+    const [tableRadius, startingAngle, step, charRadius] = this.tableVariables()
     const addCharX = Math.round(this.state.left + this.state.width/2 + (tableRadius * Math.cos(startingAngle + (this.characterCount * step))) - charRadius/2);
     const addCharY = Math.round(this.state.top + this.state.height/2 + (tableRadius * Math.sin(startingAngle + (this.characterCount * step)))- charRadius/2);
       
@@ -129,55 +112,42 @@ class GrimoireEdit extends Component {
     return characterTokens;
   }
 
-  createReminderTokens(){
-    const [tableRadius, startingAngle, step, charRadius] = this.tableVariables()
-    const reminderTokens = [];
-    const remindRadius = charRadius * 0.4;
-
-    const calculateCoords = (i, j) => {
+  getReminderTokenCount(i) {
+    if (i >= 0) {
       const isReminderAdd = this.state.addReminder[0] === i;
-      const tokenCount = this.state.players[i].reminderTokens.length + (isReminderAdd ? 1 : 0);
-      const offset = ((j === tokenCount - 1 && tokenCount % 2 === 1) ? 0 
-        : j % 2 === 0 ? - (remindRadius + 10)
-        : (remindRadius + 10))
-      const distanceFromCenter = tableRadius - (charRadius) - (remindRadius * Math.floor(j / 2)) - (10 * Math.floor(j / 2));
-      const offsetAngle = (Math.asin((offset / (4 * distanceFromCenter)))) * 2
-      const remindX = Math.round(this.state.left + this.state.width/2 + (distanceFromCenter * Math.cos(startingAngle + (i * step) + offsetAngle)) - remindRadius/2);
-      const remindY = Math.round(this.state.top + this.state.height/2 + (distanceFromCenter * Math.sin(startingAngle + (i * step) + offsetAngle))- remindRadius/2);
-      return [remindX, remindY]
+      return this.state.players[i].reminderTokens.length + (isReminderAdd ? 1 : 0);
     }
+    
+  }
 
-    for (let i = 0; i < this.characterCount; i++){
-      const isReminderAdd = this.state.addReminder[0] === i;
+  createReminderTokens(){
+    const reminderTokens = super.createReminderTokens().map((token) => {
+      const i = token.props.charIdx
+      const j = token.props.remindIdx
+      return <Token {...token.props}
+          onClick={() => {this.setState({addReminder: [i, j]})}}
+          onMouseEnter={()=> {this.setState({addReminder: [i]})}}
+          onRemove={(e) => {this.removeReminder(i); e.stopPropagation()}}/>
+    })
 
-      const tokenCount = this.state.players[i].reminderTokens.length + (isReminderAdd ? 1 : 0);
-      this.state.players[i].reminderTokens.forEach((token, j) => {
-        const [remindX, remindY] = calculateCoords(i, j)
-        const onMouseEnter = ()=> {this.setState({addReminder: [i]})}
-        reminderTokens.push(
-          <Token type={'token ' + token} radius={remindRadius} x={remindX} y={remindY}
-            onClick={() => {this.setState({addReminder: [i, j]})}}
-            onMouseEnter={onMouseEnter}
-            onRemove={(e) => {this.removeReminder(i); e.stopPropagation()}}/>
-        );
-      });
 
-      if (isReminderAdd) {
-        const [remindX, remindY] = calculateCoords(i, tokenCount - 1)
+    if (this.state.addReminder.length != 0) {
+        const addReminderIdx = this.state.addReminder[0];
+        const [remindRadius, remindX, remindY] = this.calculateCoords(addReminderIdx, 
+          this.getReminderTokenCount(addReminderIdx) - 1, this.getReminderTokenCount(addReminderIdx))
         reminderTokens.push(
           <Token type={"token Add-Character"} radius={remindRadius} x={remindX} y={remindY}
-              onClick={() => {this.setState({addReminder: [i, tokenCount - 1]})}}/>
+              onClick={() => {this.setState({addReminder: [addReminderIdx, this.getReminderTokenCount(addReminderIdx) - 1]})}}/>
         );
-      }
-      
     }
+      
     return reminderTokens;
   }
 
   createModal() {
     let onclick = () => {};
-    if (this.state.addCharacter >= 0) {
-        onclick = () => {this.setState({addCharacter: -1})};
+    if (this.state.addCharacter >= 0 || this.state.addReminder.length == 2) {
+        onclick = () => {this.setState({addCharacter: -1, addReminder:[]})};
     }   
 
     const addChar = (token) => {
