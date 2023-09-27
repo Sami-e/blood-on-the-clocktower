@@ -1,5 +1,6 @@
 import { Component, createRef } from 'react';
 import "../css/Tokens.scss"
+import Token from './Token';
 class GrimoireView extends Component {
   
   constructor(props) {
@@ -54,12 +55,7 @@ class GrimoireView extends Component {
         }}>
           <div className='player-name'>{this.props.state.players[i].name}</div>
 
-          <div className={('token ' + playerInfo.token)} style={{
-            width: charRadius,
-            height: charRadius
-          }}>
-            {!playerInfo.isAlive ? <div className='Dead'/> : ''}
-          </div>
+          <Token type={"token " + playerInfo.token} radius={charRadius} addDeadMarker={!playerInfo.isAlive}/>
         </div>
         
       );
@@ -85,14 +81,7 @@ class GrimoireView extends Component {
         const remindX = Math.round(this.state.left + this.state.width/2 + (distanceFromCenter * Math.cos(angle + (i * step) + offsetAngle)) - remindRadius/2);
         const remindY = Math.round(this.state.top + this.state.height/2 + (distanceFromCenter * Math.sin(angle + (i * step) + offsetAngle))- remindRadius/2);
         reminderTokens.push(
-          <div className='token' style={{
-            width: remindRadius,
-            height: remindRadius,
-            left: remindX + 'px', 
-            top: remindY + 'px'
-          }}>
-            {token}
-          </div>
+          <Token type={'token ' + token} radius={remindRadius} x={remindX} y={remindY}/>
         );
       });
     }

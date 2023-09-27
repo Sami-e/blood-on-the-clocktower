@@ -1,5 +1,44 @@
 // TB Tokens
 .token, .small-token {
+
+.Dead {
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/other-images/X-Death.png");
+    background-size: contain;
+    opacity: 70%;
+}
+
+.closeToken {
+    visibility: hidden;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    width: 20%;
+    height: 20%;
+    background-image: url("../images/other-images/close-token-button.png");
+    background-size: contain;
+    border-radius: 50%;
+}
+
+&:hover {
+    .closeToken {
+        visibility: visible;
+    }
+}
+&.Add-Character {
+    background-image: url("../images/other-images/Add-Character.png");
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid gray;
+    &:hover {
+        opacity: 50%;
+        transition: 0.1s ease;
+    }
+}
+
+// TB Tokens:
     
 &.Washerwoman {
     background-image: url("../images/tokens/TB_Tokens/TB_Washerwoman.png");
@@ -111,41 +150,87 @@
     background-size: contain;
 }
 
-&.Add-Character {
-    background-image: url("../images/other-images/Add-Character.png");
-    background-size: 75%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 1px solid gray;
-    &:hover {
-        opacity: 50%;
-        transition: 0.1s ease;
-    }
-}
-
-.Dead {
-    width: 100%;
-    height: 100%;
-    background-image: url("../images/other-images/X-Death.png");
+// TB Reminder Tokens:
+&.Butler-Master {
+    background-image: url("../images/tokens/TB_reminders/Butler_Master.png");
     background-size: contain;
-    opacity: 70%;
 }
 
-.closeToken {
-    visibility: hidden;
-    position: absolute;
-    right: 10%;
-    top: 10%;
-    width: 20%;
-    height: 20%;
-    background-image: url("../images/other-images/close-token-button.png");
+&.Drunk-Is-The-Drunk {
+    background-image: url("../images/tokens/TB_reminders/Drunk_Is_The_Drunk.png");
     background-size: contain;
-    border-radius: 50%;
 }
 
-&:hover {
-    .closeToken {
-        visibility: visible;
-    }
+&.Fortune-Teller-Red-Herring {
+    background-image: url("../images/tokens/TB_reminders/Fortune_Teller_Red_Herring.png");
+    background-size: contain;
 }
+
+&.Imp-Dead {
+    background-image: url("../images/tokens/TB_reminders/Imp_Dead.png");
+    background-size: contain;
+}
+
+&.Investigator-Minion {
+    background-image: url("../images/tokens/TB_reminders/Investigator_Minion.png");
+    background-size: contain;
+}
+
+&.Investigator-Wrong {
+    background-image: url("../images/tokens/TB_reminders/Investigator_Wrong.png");
+    background-size: contain;
+}
+
+&.Librarian-Outsider {
+    background-image: url("../images/tokens/TB_reminders/Librarian_Outsider.png");
+    background-size: contain;
+}
+
+&.Librarian-Wrong {
+    background-image: url("../images/tokens/TB_reminders/Librarian_Wrong.png");
+    background-size: contain;
+}
+
+&.Monk_Safe {
+    background-image: url("../images/tokens/TB_reminders/Monk_Safe.png");
+    background-size: contain;
+}
+
+&.Poisoner-Poisoned {
+    background-image: url("../images/tokens/TB_reminders/Poisoner_Poisoned.png");
+    background-size: contain;
+}
+
+&.Scarlet-Woman-Is-The-Demon {
+    background-image: url("../images/tokens/TB_reminders/Scarlet_Woman_Is_The_Demon.png");
+    background-size: contain;
+}
+
+&.Slayer-No-Ability {
+    background-image: url("../images/tokens/TB_reminders/Slayer_No_Ability.png");
+    background-size: contain;
+}
+
+&.Undertaker-Died-Today {
+    background-image: url("../images/tokens/TB_reminders/Undertaker_Died_Today.png");
+    background-size: contain;
+}
+
+
+&.Virgin-No-Ability {
+    background-image: url("../images/tokens/TB_reminders/Virgin_No_Ability.png");
+    background-size: contain;
+}
+
+
+&.Washerwoman-Townsfolk {
+    background-image: url("../images/tokens/TB_reminders/Washerwoman_Townsfolk.png");
+    background-size: contain;
+}
+
+&.Washerwoman-Wrong {
+    background-image: url("../images/tokens/TB_reminders/Washwoman_Wrong.png");
+    background-size: contain;
+}
+
 }

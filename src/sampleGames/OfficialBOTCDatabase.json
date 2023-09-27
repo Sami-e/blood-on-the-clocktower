@@ -14,7 +14,7 @@
             "name": "Saral",
             "token": "Monk",
             "allignment": "Good",
-            "reminderTokens": ["Fortune Teller Red Herring"],
+            "reminderTokens": ["Fortune-Teller-Red-Herring"],
             "isAlive": false
           },
           {
@@ -42,7 +42,7 @@
             "name": "Sol",
             "token": "Undertaker",
             "allignment": "Good",
-            "reminderTokens": ["Drunk"],
+            "reminderTokens": ["Drunk-Is-The-Drunk"],
             "isAlive": false
           },
           {
@@ -97,7 +97,7 @@
             "name": "Arash",
             "token": "Undertaker",
             "allignment": "Good",
-            "reminderTokens": ["Washerwoman Wrong"],
+            "reminderTokens": ["Washerwoman-Wrong"],
             "isAlive": false
           },
           {
@@ -118,7 +118,7 @@
             "name": "Richard",
             "token": "Slayer",
             "allignment": "Good",
-            "reminderTokens": ["Fortune Teller Red Herring", "Slayer No Ability", "Washerwoman Townsfolk", "Test1", "Test2"],
+            "reminderTokens": ["Fortune-Teller-Red-Herring", "Slayer-No-Ability", "Washerwoman-Townsfolk"],
             "isAlive": false
           },
           {
